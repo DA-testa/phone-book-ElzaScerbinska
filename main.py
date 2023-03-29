@@ -36,9 +36,6 @@ class HashTable:
         for item in self.buckets[hashed]:
             if item[0] == key:
                 return item[1]
-        #hashed = self._hash_func(string)
-        #if string in self.buckets[hashed]:
-            #return self.buckets[hashed][0]
         return "not found"
 
 hash_table = HashTable()
