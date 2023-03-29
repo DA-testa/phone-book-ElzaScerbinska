@@ -22,9 +22,6 @@ class HashTable:
                 bucket[i] = (key, item)
                 return
         bucket.append((key, item))
-        #if string not in bucket:
-            #self.buckets[hashed] = [string] + bucket
-        print(self.buckets)
 
     def delete(self, key):
         hashed = self._hash_func(key)
