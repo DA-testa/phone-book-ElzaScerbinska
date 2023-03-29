@@ -1,7 +1,4 @@
 # python3
-def read_queries():
-    n = int(input())
-    return [Query(input().split()) for i in range(n)]
 
 class Query:
     def __init__(self, query):
@@ -15,7 +12,6 @@ class QueryProcessor:
     def __init__(self, bucket_count):
         self.bucket_count = bucket_count
         self.buckets = [[] for _ in range(bucket_count)]
-        self._multiplier = 263
         self._prime = 1000000007
 
     def _hash_func(self, s):
@@ -29,15 +25,7 @@ class QueryProcessor:
         bucket = self.buckets[hashed]
         if string not in bucket:
             self.buckets[hashed] = [string] + bucket
-        print(self.buckets)
 
-    def delete(self, string):
-        hashed = self._hash_func(string)
-        bucket = self.buckets[hashed]
-        for i in range(len(bucket)):
-            if bucket[i] == string:
-                bucket.pop(i)
-                break
 
     def find(self, string):
         hashed = self._hash_func(string)
@@ -99,9 +87,3 @@ def process_queries(queries):
                     #break
             #result.append(response)
     #return result
-
-if __name__ == '__main__':
-    #write_responses(process_queries(read_queries()))
-    queries = read_queries()
-    result = process_queries(queries)
-    write_responses(result)
